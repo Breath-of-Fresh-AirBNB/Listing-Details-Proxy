@@ -1,5 +1,5 @@
+/* eslint-disable */
 import React from 'react';
-
 
 const MonthHeader = (props) => {
   return (
@@ -44,7 +44,7 @@ class CalendarModule extends React.Component {
     year = '20' + year.substring(1);
     var numDays = (lastDay - firstDay) / (1000*60*60*24);
     var numWeeks = Math.ceil((numDays + firstWeekday - .99) / 7);
-    
+
     var arrayDays = [];
     var startingDate = 1;
     for (var i = 0; i < numWeeks * 7; i++) {
@@ -57,15 +57,15 @@ class CalendarModule extends React.Component {
     }
 
     var dateI = this.props.dateIndex;
-    console.log('checkin: ', this.props.checkIn);
-    console.log('checkout: ', this.props.checkOut);
-    
+    // console.log('checkin: ', this.props.checkIn);
+    // console.log('checkout: ', this.props.checkOut);
+
     var checkInObj = new Date(this.props.checkIn);
-    var checkOutObj = new Date(this.props.checkOut);    
+    var checkOutObj = new Date(this.props.checkOut);
     var checkInStr = checkInObj.toString();
     var checkOutStr = checkOutObj.toString();
 
-    var calDays = arrayDays.map((val, i) => { 
+    var calDays = arrayDays.map((val, i) => {
       var dateValue = null;
       var divClass, buttonClass, clickFunction;
       if (val !== null) {
@@ -73,14 +73,14 @@ class CalendarModule extends React.Component {
         var dateValObj = new Date(dateValue);
         var dateValStr = dateValObj.toString();
         if (dateValObj >= this.props.today && this.props.cal[dateI].available) {
-          console.log('test 2....');
+          // console.log('test 2....');
           divClass = 'cal-days-inner cal-day-available-not';
           buttonClass = 'cal-days cal-days-available-not';
           if (!this.props.checkIn && this.checkMinStay(dateI) || this.props.checkOut && this.checkMinStay(dateI)) {
             divClass = 'cal-days-inner cal-day-available';
             buttonClass = 'cal-days cal-days-available';
             clickFunction = () => this.props.onDateClick(dateValue);
-          } 
+          }
         } else {
           divClass = 'cal-days-inner cal-date-unavailable';
           buttonClass = 'cal-days cal-days-unavailable';
@@ -90,7 +90,7 @@ class CalendarModule extends React.Component {
             buttonClass += ' check-in-stay';
           }
           if (dateValObj > checkInObj && dateValObj < checkOutObj) {
-            console.log('in stay-day...');
+            // console.log('in stay-day...');
             buttonClass += ' stay-day';
           }
           if (dateValStr === checkOutStr) {
@@ -99,20 +99,20 @@ class CalendarModule extends React.Component {
         } else {
           if (dateValStr === checkInStr) {
             buttonClass += ' check-in-date';
-          } 
+          }
           if (this.props.checkIn && (((dateValObj - checkInObj) / (1000*60*60*24)) >= this.props.minStay) && this.props.cal[dateI].available) {
             if (this.props.lastDateI === null || (this.props.lastDateI !== null && (dateI < this.props.lastDateI))) {
-              console.log('test 3....');
+              // console.log('test 3....');
               divClass = 'cal-days-inner cal-day-available';
               buttonClass = 'cal-days cal-days-available';
               clickFunction = () => this.props.onDateClick(dateValue);
-            }  
-          } 
+            }
+          }
           ///////////////////////////////////
-          console.log('test...', dateValObj, this.props.today, checkInObj, this.props.checkOut, checkOutObj);
+          // console.log('test...', dateValObj, this.props.today, checkInObj, this.props.checkOut, checkOutObj);
 
           if (this.props.checkIn && dateValObj < checkInObj && dateValObj >= this.props.today && this.checkMinStay(dateI)) {
-            console.log('test 4');
+            // console.log('test 4');
             divClass = 'cal-days-inner cal-day-available';
             buttonClass = 'cal-days cal-days-available';
             clickFunction = () => this.props.onDateClick(dateValue);
@@ -174,7 +174,7 @@ class CalendarModule extends React.Component {
         </div>
       )
     }
-  }  
+  }
   render() {
     return (
       <div className='month-module'>

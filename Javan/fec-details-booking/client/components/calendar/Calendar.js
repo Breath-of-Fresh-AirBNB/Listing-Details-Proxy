@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import CalendarModule from './CalendarModule.js';
 
@@ -31,7 +32,7 @@ const ScrollBar = (props) => {
   return (
     <div className="cal-scroll-bar">
       <button id="calLeftButton" className="cal-button" onClick={props.onPriorClick()}>&lt;</button>
-      <button id="calRightButton" className="cal-button" onClick={props.onNextClick()}>&gt;</button>      
+      <button id="calRightButton" className="cal-button" onClick={props.onNextClick()}>&gt;</button>
     </div>
   )
 }
@@ -89,58 +90,58 @@ class Calendar extends React.Component {
       isLoaded: true,
     })
   }
-  
+
   renderModules() {
     if (this.state.isLoaded) {
       if (this.state.windowWidth < 850) {
         return (
-          <div className="calendar-block"> 
-              <ScrollBar 
-                onNextClick={() => this.props.onNextClick} 
+          <div className="calendar-block">
+              <ScrollBar
+                onNextClick={() => this.props.onNextClick}
                 onPriorClick={() => this.props.onPriorClick}
               />
               <div className="calendar-module">
-                <CalendarModule 
-                  date={this.state.firstMonth.firstDay} 
-                  checkIn={this.props.checkIn} 
-                  checkOut={this.props.checkOut} 
-                  dateIndex={this.state.firstMonth.dateIndex} 
-                  lastDateI={this.props.lastDateI} 
-                  today={this.props.date} 
-                  cal={this.props.calendar} 
-                  minStay={this.props.minStay} 
+                <CalendarModule
+                  date={this.state.firstMonth.firstDay}
+                  checkIn={this.props.checkIn}
+                  checkOut={this.props.checkOut}
+                  dateIndex={this.state.firstMonth.dateIndex}
+                  lastDateI={this.props.lastDateI}
+                  today={this.props.date}
+                  cal={this.props.calendar}
+                  minStay={this.props.minStay}
                   onDateClick={(i) => this.props.onDateClick(i)}
                 />
-              </div>   
-                      
-            </div>         
+              </div>
+
+            </div>
         )
       } else {
         return (
-          <div className="calendar-block"> 
-              <ScrollBar onNextClick={() => this.props.onNextClick} 
+          <div className="calendar-block">
+              <ScrollBar onNextClick={() => this.props.onNextClick}
               onPriorClick={() => this.props.onPriorClick}/>
             <div className="calendar-module">
-              <CalendarModule 
-                date={this.state.firstMonth.firstDay} 
-                checkIn={this.props.checkIn} 
-                checkOut={this.props.checkOut} 
-                dateIndex={this.state.firstMonth.dateIndex} 
-                lastDateI={this.props.lastDateI} 
-                today={this.props.date} 
-                cal={this.props.calendar} 
-                minStay={this.props.minStay} 
+              <CalendarModule
+                date={this.state.firstMonth.firstDay}
+                checkIn={this.props.checkIn}
+                checkOut={this.props.checkOut}
+                dateIndex={this.state.firstMonth.dateIndex}
+                lastDateI={this.props.lastDateI}
+                today={this.props.date}
+                cal={this.props.calendar}
+                minStay={this.props.minStay}
                 onDateClick={(i) => this.props.onDateClick(i)}
               />
-              <CalendarModule 
-                date={this.state.secondMonth.firstDay} 
-                checkIn={this.props.checkIn} 
-                checkOut={this.props.checkOut} 
-                dateIndex={this.state.secondMonth.dateIndex} 
-                lastDateI={this.props.lastDateI} 
-                today={this.props.date} 
-                cal={this.props.calendar} 
-                minStay={this.props.minStay} 
+              <CalendarModule
+                date={this.state.secondMonth.firstDay}
+                checkIn={this.props.checkIn}
+                checkOut={this.props.checkOut}
+                dateIndex={this.state.secondMonth.dateIndex}
+                lastDateI={this.props.lastDateI}
+                today={this.props.date}
+                cal={this.props.calendar}
+                minStay={this.props.minStay}
                 onDateClick={(i) => this.props.onDateClick(i)}
               />
             </div>
@@ -161,8 +162,8 @@ class Calendar extends React.Component {
         {this.renderModules()}
         <div className="clear-dates float-right text-underline font-12" onClick={() => this.props.onClearDates()}>
           Clear dates
-        </div> 
-      </div>      
+        </div>
+      </div>
     )
   }
 }

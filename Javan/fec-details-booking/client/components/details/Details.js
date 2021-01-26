@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import Intro from './Intro.js';
 
@@ -6,7 +7,7 @@ class Details extends React.Component {
     super(props);
     this.state = {
       hostName: {
-        first: null        
+        first: null
       }
     }
   }
