@@ -40,6 +40,19 @@
   src: url('./fonts/AirbnbCerealMedium.ttf');
 }
 
+/* Overall Container for page */
+.container {
+  display: flex;
+  margin-right: 20%;
+  margin-left: 20%;
+}
+
+.mainContainer {
+  max-width: 1200px;
+  width: 90%;
+  margin: auto;
+}
+
 body {
   font-family: 'Cereal Medium';
 }
