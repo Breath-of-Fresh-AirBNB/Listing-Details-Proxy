@@ -2,6 +2,11 @@
 /* eslint-disable import/extensions */
 import React from 'react';
 import axios from 'axios';
+import {
+  HashRouter,
+  Route,
+  Switch,
+} from 'react-router-dom';
 import Listings from './Listings.jsx';
 import Search from './Search.jsx';
 import PhoneListings from './PhoneListings.jsx';
@@ -45,7 +50,9 @@ class App extends React.Component {
   }
 
   handleSelect(home) {
-    this.setState({ searchResults: [home] });
+    this.setState({
+      searchResults: [home],
+    });
   }
 
   handleAllPhotos() {
@@ -138,12 +145,18 @@ class App extends React.Component {
     return (
       <div>
         <Search searchHandler={this.searchHandler} />
-        <Listings
-          handleSelect={this.handleSelect}
-          handleAllPhotos={this.handleAllPhotos}
-          handleLocation={this.handleLocation}
-          searchResults={this.state.searchResults}
-        />
+        <HashRouter>
+          <Switch>
+            <Route path="/homes/:id">
+              <Listings
+                handleSelect={this.handleSelect}
+                handleAllPhotos={this.handleAllPhotos}
+                handleLocation={this.handleLocation}
+                searchResults={this.state.searchResults}
+              />
+            </Route>
+          </Switch>
+        </HashRouter>
       </div>
     );
   }
